@@ -225,3 +225,5 @@ dependencies {
     testImplementation(libs.mockito.kotlin)
     coreLibraryDesugaring(libs.desugar.jdk.libs)
 }
+
+android.defaultConfig.applicationIdSuffix = ".pr5903"

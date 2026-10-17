@@ -22,12 +22,10 @@ jobs:
           cache: 'gradle'
 
       - name: Download libv2ray.aar
-        working-directory: ./V2rayNG/app/libs
         run: |
-          mkdir -p .
-          if [ ! -f "libv2ray.aar" ]; then
-            curl -sL $(curl -s https://api.github.com/repos/2dust/AndroidLibXrayLite/releases/latest | jq -r '.assets[] | select(.name == "libv2ray.aar") | .browser_download_url') -o libv2ray.aar
-          fi
+          mkdir -p V2rayNG/app/libs
+          curl -sL $(curl -s https://api.github.com/repos/2dust/AndroidLibXrayLite/releases/latest | jq -r '.assets[] | select(.name == "libv2ray.aar") | .browser_download_url') -o V2rayNG/app/libs/libv2ray.aar
+          ls -lh V2rayNG/app/libs/libv2ray.aar
 
       - name: Build Debug APK
         working-directory: ./V2rayNG
